@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#app {
+  min-width: 320px;
+  min-height: 100vh;
+}
