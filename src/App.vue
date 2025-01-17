@@ -6,16 +6,9 @@ import Timers from './pages/Timers.vue';
 import Progress from './pages/Progress.vue';
 import Tasks from './pages/Tasks.vue';
 import { PAGE_TIMERS, PAGE_TASKS, PAGE_PROGRESS } from './constants';
+import { pageHash } from './functions';
 
 const currentPage = ref(pageHash());
-
-function pageHash() {
-  const hash = window.location.hash.slice(1);
-  if ([PAGE_TIMERS, PAGE_TASKS, PAGE_PROGRESS].includes(hash)) {
-    return hash;
-  }
-  return PAGE_TIMERS;
-}
 
 const newCurrentPage = newpage => {
   currentPage.value = newpage;
