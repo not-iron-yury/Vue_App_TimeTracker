@@ -1,24 +1,39 @@
 <script setup>
+import { ref } from 'vue';
 import FooterLink from './FooterLink.vue';
 
-const pages = [
-  {
-    label: 'Таймеры',
-    link: '#',
-    icon: 'clock',
-    id: 1,
-  },
-];
+const currentPage = ref('timers');
+const changeCurrentPage = newpage => {
+  currentPage.value = newpage;
+};
 </script>
 
 <template>
-  <footer class="sticky bottom-0 z-10 py-3 text-base bg-white border-t">
+  <footer class="sticky bottom-0 z-10 text-base bg-white border-t">
     <div class="container px-4 mx-auto">
       <nav>
         <ul class="flex items-center justify-around flex-wrap gap-2">
-          <footer-link label="Таймеры" link="#" icon="clock" />
-          <footer-link label="Задачи" link="#" icon="list-check" />
-          <footer-link label="Прогресс" link="#" icon="chart-line" />
+          <footer-link
+            label="Таймеры"
+            link="timers"
+            icon="clock"
+            :currentPage="currentPage"
+            @new-page="changeCurrentPage"
+          />
+          <footer-link
+            label="Задачи"
+            link="tasks"
+            icon="list-check"
+            :currentPage="currentPage"
+            @new-page="changeCurrentPage"
+          />
+          <footer-link
+            label="Прогресс"
+            link="progress"
+            icon="chart-line"
+            :currentPage="currentPage"
+            @new-page="changeCurrentPage"
+          />
         </ul>
       </nav>
     </div>
