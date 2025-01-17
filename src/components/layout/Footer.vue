@@ -3,7 +3,15 @@ import { ref } from 'vue';
 import FooterLink from './FooterLink.vue';
 import { PAGE_TIMERS, PAGE_TASKS, PAGE_PROGRESS } from '../../constants';
 
-const currentPage = ref(PAGE_TIMERS);
+const currentPage = ref(pageHash());
+
+function pageHash() {
+  const hash = window.location.hash.slice(1);
+  if ([PAGE_TIMERS, PAGE_TASKS, PAGE_PROGRESS].includes(hash)) {
+    return hash;
+  }
+  return PAGE_TIMERS;
+}
 
 const changeCurrentPage = newpage => {
   currentPage.value = newpage;
