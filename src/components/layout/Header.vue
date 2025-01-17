@@ -8,7 +8,7 @@
         TimeTracker
       </a>
       <a href="#" class="text-lg font-semibold my-auto p-0">
-        <div class="flex items-center gap-2" v-if="true">
+        <div class="flex items-center gap-2" v-if="false">
           <p>День закончен!</p>
           <font-awesome-icon :icon="['fas', 'circle-check']" class="h-5 text-green-600" />
         </div>
