@@ -23,7 +23,7 @@ const newCurrentPage = newpage => {
 </script>
 
 <template>
-  <layout-header />
+  <layout-header @change-current-page="newCurrentPage" />
   <main class="flex flex-grow flex-col py-8">
     <div class="container px-4 mx-auto">
       <Timers v-show="currentPage === PAGE_TIMERS" />
@@ -31,7 +31,7 @@ const newCurrentPage = newpage => {
       <Progress v-show="currentPage === PAGE_PROGRESS" />
     </div>
   </main>
-  <layout-footer @changeCurrentPage="newCurrentPage" :current-page="currentPage" />
+  <layout-footer @change-current-page="newCurrentPage" :current-page="currentPage" />
 </template>
 
 <style></style>

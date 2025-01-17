@@ -1,13 +1,25 @@
-<script setup></script>
+<script setup>
+import { PAGE_TIMERS, PAGE_PROGRESS } from '../../constants';
+
+const emit = defineEmits(['changeCurrentPage']);
+</script>
 
 <template>
   <header class="sticky top-0 z-20 py-6 border-b bg-gray-100">
     <div class="container flex justify-between flex-wrap gap-2 px-4 mx-auto">
-      <a href="#" class="flex items-center gap-2 text-3xl font-bold text-blue-600 text-nowrap">
+      <a
+        :href="`#${PAGE_TIMERS}`"
+        @click="emit('changeCurrentPage', PAGE_TIMERS)"
+        class="flex items-center gap-2 text-3xl font-bold text-blue-600 text-nowrap"
+      >
         <font-awesome-icon :icon="['fas', 'stopwatch']" class="h-10" />
         TimeTracker
       </a>
-      <a href="#" class="text-lg font-semibold my-auto p-0">
+      <a
+        :href="`#${PAGE_PROGRESS}`"
+        @click="emit('changeCurrentPage', PAGE_PROGRESS)"
+        class="text-lg font-semibold my-auto p-0"
+      >
         <div class="flex items-center gap-2" v-if="false">
           <p>День закончен!</p>
           <font-awesome-icon :icon="['fas', 'circle-check']" class="h-5 text-green-600" />
