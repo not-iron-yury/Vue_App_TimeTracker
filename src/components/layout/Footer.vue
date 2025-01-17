@@ -1,20 +1,18 @@
 <script setup>
-import { ref } from 'vue';
 import FooterLink from './FooterLink.vue';
 import { PAGE_TIMERS, PAGE_TASKS, PAGE_PROGRESS } from '../../constants';
 
-const currentPage = ref(pageHash());
+const props = defineProps({
+  currentPage: {
+    type: String,
+    required: true,
+  },
+});
 
-function pageHash() {
-  const hash = window.location.hash.slice(1);
-  if ([PAGE_TIMERS, PAGE_TASKS, PAGE_PROGRESS].includes(hash)) {
-    return hash;
-  }
-  return PAGE_TIMERS;
-}
+const emit = defineEmits(['changeCurrentPage']);
 
 const changeCurrentPage = newpage => {
-  currentPage.value = newpage;
+  emit('changeCurrentPage', newpage);
 };
 </script>
 
