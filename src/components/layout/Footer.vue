@@ -1,8 +1,10 @@
 <script setup>
 import { ref } from 'vue';
 import FooterLink from './FooterLink.vue';
+import { PAGE_TIMERS, PAGE_TASKS, PAGE_PROGRESS } from '../../constants';
 
-const currentPage = ref('timers');
+const currentPage = ref(PAGE_TIMERS);
+
 const changeCurrentPage = newpage => {
   currentPage.value = newpage;
 };
@@ -15,21 +17,21 @@ const changeCurrentPage = newpage => {
         <ul class="flex items-center justify-around flex-wrap gap-2">
           <footer-link
             label="Таймеры"
-            link="timers"
+            :link="PAGE_TIMERS"
             icon="clock"
             :currentPage="currentPage"
             @new-page="changeCurrentPage"
           />
           <footer-link
             label="Задачи"
-            link="tasks"
+            :link="PAGE_TASKS"
             icon="list-check"
             :currentPage="currentPage"
             @new-page="changeCurrentPage"
           />
           <footer-link
             label="Прогресс"
-            link="progress"
+            :link="PAGE_PROGRESS"
             icon="chart-line"
             :currentPage="currentPage"
             @new-page="changeCurrentPage"
