@@ -21,11 +21,13 @@ const options = [
   { label: 'Кушац', value: 4 },
   { label: 'Магазин', value: 5 },
 ];
+
+const selectedOptionId = 0;
 </script>
 
 <template>
   <li :class="classListItem">
     <a href="#" :class="classListLink"> {{ timeLineData.hour }}:00 </a>
-    <base-options :options="options" />
+    <base-options :options="options" :selectedOptionId="selectedOptionId" placeholder="Отдых" />
   </li>
 </template>
