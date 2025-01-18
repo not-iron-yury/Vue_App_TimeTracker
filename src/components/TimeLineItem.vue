@@ -1,10 +1,14 @@
 <script setup>
-import BaseOptions from './BaseSelect.vue';
+import BaseSelect from './BaseSelect.vue';
+import { HOURS_IN_DAY } from './../constants';
 
 const props = defineProps({
   timeLineData: {
     type: Object,
     required: true,
+    validator: ({ hour }) => {
+      return typeof hour === 'number' && hour < HOURS_IN_DAY && hour > -1;
+    },
   },
 });
 
@@ -28,6 +32,6 @@ const selectedOptionId = 0;
 <template>
   <li :class="classListItem">
     <a href="#" :class="classListLink"> {{ timeLineData.hour }}:00 </a>
-    <base-options :options="options" :selectedOptionId="selectedOptionId" placeholder="Отдых" />
+    <base-select :options="options" :selectedOptionId="selectedOptionId" placeholder="Отдых" />
   </li>
 </template>

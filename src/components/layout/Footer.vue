@@ -6,6 +6,7 @@ const props = defineProps({
   currentPage: {
     type: String,
     required: true,
+    validator: currentPage => [PAGE_TIMERS, PAGE_TASKS, PAGE_PROGRESS].includes(currentPage),
   },
 });
 

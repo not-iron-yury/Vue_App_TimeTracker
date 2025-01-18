@@ -11,8 +11,9 @@ import {
   faClock,
   faListCheck,
   faBarsProgress,
+  faXmark,
 } from '@fortawesome/free-solid-svg-icons';
-library.add([faStopwatch, faCircleCheck, faChartLine, faClock, faListCheck, faBarsProgress]);
+library.add([faStopwatch, faCircleCheck, faChartLine, faClock, faListCheck, faBarsProgress, faXmark]);
 
 const app = createApp(App);
 
