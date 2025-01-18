@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <h1>Задачи</h1>
+  <section>
+    <h1>Задачи</h1>
+  </section>
 </template>
-
-<style lang="scss"></style>

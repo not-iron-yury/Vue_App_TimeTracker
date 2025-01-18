@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <h1>Прогресс</h1>
+  <div class="container">
+    <h1>Прогресс</h1>
+  </div>
 </template>
-
-<style lang="scss"></style>
