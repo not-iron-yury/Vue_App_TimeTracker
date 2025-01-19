@@ -5,7 +5,7 @@ export function isPageValid(page) {
 }
 
 export function isTimeLineDataValid({ hour }) {
-  return typeof hour === 'number' && hour < HOURS_IN_DAY && hour >= START_OF_THE_DAY;
+  return isNumber(hour) && hour < HOURS_IN_DAY && hour >= START_OF_THE_DAY;
 }
 
 export function isTimeLinesValid(timeLines) {
@@ -13,5 +13,13 @@ export function isTimeLinesValid(timeLines) {
 }
 
 export function isOptionValid(options) {
-  return options.every(({ label, value }) => typeof label === 'string' && typeof value === 'number');
+  return options.every(({ label, value }) => isString(label) && isNumber(value));
+}
+
+function isNumber(value) {
+  return typeof value === 'number';
+}
+
+function isString(value) {
+  typeof value === 'string';
 }

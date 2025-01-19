@@ -30,7 +30,7 @@ const emit = defineEmits(['select']);
       class="w-full truncate bg-blue-50 rounded-sm px-2 py-2 text-2xl"
       @change="emit('select', Number($event.target.value))"
     >
-      <option selected disabled value="">{{ placeholder }}</option>
+      <option disabled :selected="selectedOptionId === null">{{ placeholder }}</option>
       <option v-for="{ label, value } in options" :key="value" :value="value" :selected="value === selectedOptionId">
         {{ label }}
       </option>
