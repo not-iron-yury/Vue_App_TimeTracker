@@ -23,7 +23,7 @@ const emit = defineEmits(['select']);
 
 <template>
   <div class="flex gap-2">
-    <base-button>
+    <base-button @click="$emit('select', null)">
       <font-awesome-icon :icon="['fas', 'xmark']" />
     </base-button>
     <select

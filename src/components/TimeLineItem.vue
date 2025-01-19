@@ -25,7 +25,7 @@ const options = [
   { label: 'Магазин', value: 5 },
 ];
 
-const selectedOptionId = ref(2);
+const selectedOptionId = ref(0);
 </script>
 
 <template>
