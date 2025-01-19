@@ -5,6 +5,10 @@ export function isPageValid(page) {
 }
 
 export function isTimeLineDataValid({ hour }) {
+  return isHourValid(hour);
+}
+
+export function isHourValid(hour) {
   return isNumber(hour) && hour < HOURS_IN_DAY && hour >= START_OF_THE_DAY;
 }
 
@@ -21,5 +25,5 @@ function isNumber(value) {
 }
 
 function isString(value) {
-  typeof value === 'string';
+  return typeof value === 'string';
 }
