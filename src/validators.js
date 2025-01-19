@@ -5,13 +5,13 @@ export function isPageValid(page) {
 }
 
 export function isTimeLineDataValid({ hour }) {
-  return typeof hour === 'number' && hour < HOURS_IN_DAY && hour > -1;
+  return typeof hour === 'number' && hour < HOURS_IN_DAY && hour >= START_OF_THE_DAY;
+}
+
+export function isTimeLinesValid(timeLines) {
+  return timeLines.every(isTimeLineDataValid); // timeLines.every(obj => isTimeLineDataValid(obj))
 }
 
 export function isOptionValid(options) {
   return options.every(({ label, value }) => typeof label === 'string' && typeof value === 'number');
-}
-
-export function isTimeLinesValid(timeLines) {
-  return timeLines.every(({ hour }) => typeof hour === 'number' && hour < HOURS_IN_DAY && hour >= START_OF_THE_DAY);
 }

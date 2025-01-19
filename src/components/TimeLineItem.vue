@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue';
 import BaseSelect from './BaseSelect.vue';
 import { isTimeLineDataValid } from '../validators';
 
@@ -24,12 +25,17 @@ const options = [
   { label: 'Магазин', value: 5 },
 ];
 
-const selectedOptionId = 0;
+const selectedOptionId = ref(2);
 </script>
 
 <template>
   <li :class="classListItem">
     <a href="#" :class="classListLink"> {{ timeLineData.hour }}:00 </a>
-    <base-select :options="options" :selectedOptionId="selectedOptionId" placeholder="Отдых" />
+    <base-select
+      :options="options"
+      :selectedOptionId="selectedOptionId"
+      placeholder="Отдых"
+      @select="selectedOptionId = $event"
+    />
   </li>
 </template>
