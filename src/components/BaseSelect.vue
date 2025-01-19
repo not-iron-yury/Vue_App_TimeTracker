@@ -1,13 +1,12 @@
 <script setup>
 import BaseButton from './BaseButton.vue';
+import { isOptionValid } from './../validators';
 
 const props = defineProps({
   options: {
     type: Array,
     required: true,
-    validator: options => {
-      return options.every(({ label, value }) => typeof label === 'string' && typeof value === 'number');
-    },
+    validator: isOptionValid,
   },
   placeholder: {
     type: String,
