@@ -1,16 +1,17 @@
-import { PAGE_TIMERS, PAGE_TASKS, PAGE_PROGRESS, HOURS_IN_DAY } from './constants';
+import { PAGE_TIMERS, HOURS_IN_DAY, START_OF_THE_DAY } from './constants';
+import { isPageValid } from './validators';
 
 export function pageHash() {
-  const hash = window.location.hash.slice(1);
-  if ([PAGE_TIMERS, PAGE_TASKS, PAGE_PROGRESS].includes(hash)) {
-    return hash;
+  const page = window.location.hash.slice(1);
+  if (isPageValid(page)) {
+    return page;
   }
   return PAGE_TIMERS;
 }
 
 export function generateTimeLines() {
   const timeLines = [];
-  for (let hour = 0; hour < HOURS_IN_DAY; hour++) {
+  for (let hour = START_OF_THE_DAY; hour < HOURS_IN_DAY; hour++) {
     timeLines.push({ hour: hour });
   }
   return timeLines;

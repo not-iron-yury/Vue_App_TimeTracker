@@ -1,17 +1,19 @@
 <script setup>
 import FooterLink from './FooterLink.vue';
 import { PAGE_TIMERS, PAGE_TASKS, PAGE_PROGRESS } from '../../constants';
-import { isCurrentPageValid } from './../../validators';
+import { isPageValid } from './../../validators';
 
 const props = defineProps({
   currentPage: {
     type: String,
     required: true,
-    validator: isCurrentPageValid,
+    validator: isPageValid,
   },
 });
 
-const emit = defineEmits(['changeCurrentPage']);
+const emit = defineEmits({
+  changeCurrentPage: isPageValid, // в данном случае функция isPageValid нам подходит
+});
 
 const changeCurrentPage = newpage => {
   emit('changeCurrentPage', newpage);

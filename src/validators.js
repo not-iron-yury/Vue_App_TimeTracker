@@ -1,7 +1,7 @@
-import { PAGE_TIMERS, PAGE_TASKS, PAGE_PROGRESS, HOURS_IN_DAY } from './constants';
+import { PAGE_TIMERS, PAGE_TASKS, PAGE_PROGRESS, HOURS_IN_DAY, START_OF_THE_DAY } from './constants';
 
-export function isCurrentPageValid(currentPage) {
-  return [PAGE_TIMERS, PAGE_TASKS, PAGE_PROGRESS].includes(currentPage);
+export function isPageValid(page) {
+  return [PAGE_TIMERS, PAGE_TASKS, PAGE_PROGRESS].includes(page);
 }
 
 export function isTimeLineDataValid({ hour }) {
@@ -13,5 +13,5 @@ export function isOptionValid(options) {
 }
 
 export function isTimeLinesValid(timeLines) {
-  return timeLines.every(({ hour }) => typeof hour === 'number' && hour < HOURS_IN_DAY && hour > -1);
+  return timeLines.every(({ hour }) => typeof hour === 'number' && hour < HOURS_IN_DAY && hour >= START_OF_THE_DAY);
 }

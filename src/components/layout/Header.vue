@@ -1,7 +1,10 @@
 <script setup>
 import { PAGE_TIMERS, PAGE_PROGRESS } from '../../constants';
+import { isPageValid } from './../../validators';
 
-const emit = defineEmits(['changeCurrentPage']);
+const emit = defineEmits({
+  changeCurrentPage: isPageValid, // в данном случае функция isPageValid нам подходит
+});
 </script>
 
 <template>
