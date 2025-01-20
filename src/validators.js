@@ -17,7 +17,7 @@ export function isTimeLinesValid(timeLines) {
 }
 
 export function isOptionValid(options) {
-  return options.every(({ label, value }) => isString(label) && isNumber(value));
+  return options.every(({ label, value }) => isTaskValid(label) && isNumber(value));
 }
 
 export function validateTasks(arr) {

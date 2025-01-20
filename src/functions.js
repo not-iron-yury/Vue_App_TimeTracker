@@ -16,3 +16,7 @@ export function generateTimeLines() {
   }
   return timeLines;
 }
+
+export function createTaskListOption(tasks) {
+  return tasks.map((itm, index) => ({ label: itm, value: index }));
+}

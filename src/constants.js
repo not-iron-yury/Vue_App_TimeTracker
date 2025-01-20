@@ -14,11 +14,3 @@ export const TIMERS_LIMIT = [
   { label: '00:30', value: 30 },
   { label: '00:40', value: 40 },
 ];
-
-export const TASKS_LIST = [
-  { label: 'Тренировка', value: 1 },
-  { label: 'Говнокодинг', value: 2 },
-  { label: 'Бытовуха', value: 3 },
-  { label: 'Кушац', value: 4 },
-  { label: 'Магазин', value: 5 },
-];

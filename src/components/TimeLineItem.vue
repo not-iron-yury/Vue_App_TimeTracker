@@ -3,13 +3,17 @@ import { ref } from 'vue';
 import BaseSelect from './BaseSelect.vue';
 import TimeLineHour from './TimeLineHour.vue';
 import { isTimeLineDataValid } from '../validators';
-import { TASKS_LIST } from './../constants';
 
 const props = defineProps({
   timeLineData: {
     type: Object,
     required: true,
     validator: isTimeLineDataValid,
+  },
+  taskListOption: {
+    type: Array,
+    required: true,
+    //validator: isOptionValid  // данная валидация уже выполняется в родительском компоненте TimeLine
   },
 });
 
@@ -22,7 +26,7 @@ const selectedOptionId = ref(null);
   <li :class="classListItem">
     <TimeLineHour :hour="timeLineData.hour" />
     <base-select
-      :options="TASKS_LIST"
+      :options="taskListOption"
       :selectedId="selectedOptionId"
       placeholder="Отдых"
       @select="selectedOptionId = $event"
