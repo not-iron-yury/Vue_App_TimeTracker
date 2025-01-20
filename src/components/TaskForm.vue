@@ -24,7 +24,7 @@ function handlerInput(event) {
       class="p-2 w-full h-[44px] font-mono text-lg text-gray-600 border-2 border-blue-100 placeholder:text-gray-300"
       placeholder="Добавить новую задачу"
     />
-    <BaseButton>
+    <BaseButton class="bg-blue-500 text-white">
       <font-awesome-icon :icon="['fas', 'plus']" />
     </BaseButton>
   </form>
