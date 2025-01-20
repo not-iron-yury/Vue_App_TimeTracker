@@ -20,6 +20,14 @@ export function isOptionValid(options) {
   return options.every(({ label, value }) => isString(label) && isNumber(value));
 }
 
+export function validateTasks(arr) {
+  return arr.every(isTaskValid);
+}
+
+export function isTaskValid(task) {
+  return isString(task) && task.length > 0;
+}
+
 function isNumber(value) {
   return typeof value === 'number';
 }

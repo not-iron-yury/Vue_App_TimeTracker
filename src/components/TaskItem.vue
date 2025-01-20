@@ -2,22 +2,18 @@
 import { ref } from 'vue';
 import BaseButton from '../components/BaseButton.vue';
 import BaseSelect from '../components/BaseSelect.vue';
+import { TIMERS_LIMIT } from './../constants';
+import { isTaskValid } from '../validators';
 
 const props = defineProps({
   task: {
     type: String,
     required: true,
+    validator: isTaskValid,
   },
 });
 
-const selectedTimerId = ref(10);
-
-const timersLimit = [
-  { label: '00:10', value: 10 },
-  { label: '00:20', value: 20 },
-  { label: '00:30', value: 30 },
-  { label: '00:40', value: 40 },
-];
+const selectedTimerId = ref(null);
 </script>
 
 <template>
@@ -31,7 +27,7 @@ const timersLimit = [
     <div>
       <base-select
         class="font-mono"
-        :options="timersLimit"
+        :options="TIMERS_LIMIT"
         placeholder="hh:mm"
         :selectedId="selectedTimerId"
         @select="selectedTimerId = $event"

@@ -15,6 +15,8 @@ const currentPage = ref(pageHash());
 const newCurrentPage = newpage => {
   currentPage.value = newpage;
 };
+
+const tasks = ['Тренировка', 'Кодинг', 'Бытовуха', 'Кушац', 'Магазин'];
 </script>
 
 <template>
@@ -22,7 +24,7 @@ const newCurrentPage = newpage => {
   <main class="flex flex-grow flex-col py-8">
     <div class="container px-4 mx-auto">
       <TimeLine v-show="currentPage === PAGE_TIMERS" :timeLines="timeLines" />
-      <Tasks v-show="currentPage === PAGE_TASKS" />
+      <Tasks v-show="currentPage === PAGE_TASKS" :tasks="tasks" />
       <Progress v-show="currentPage === PAGE_PROGRESS" />
     </div>
   </main>
