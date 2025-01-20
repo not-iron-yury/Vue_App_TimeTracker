@@ -30,7 +30,7 @@ const selectedOptionId = ref(0);
     <TimeLineHour :hour="timeLineData.hour" />
     <base-select
       :options="options"
-      :selectedOptionId="selectedOptionId"
+      :selectedId="selectedOptionId"
       placeholder="Отдых"
       @select="selectedOptionId = $event"
     />

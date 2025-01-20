@@ -12,7 +12,7 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  selectedOptionId: {
+  selectedId: {
     type: Number,
     required: false,
   },
@@ -30,8 +30,8 @@ const emit = defineEmits(['select']);
       class="w-full truncate bg-blue-50 rounded-sm px-2 py-2 text-xl h-11"
       @change="emit('select', Number($event.target.value))"
     >
-      <option disabled :selected="selectedOptionId === null">{{ placeholder }}</option>
-      <option v-for="{ label, value } in options" :key="value" :value="value" :selected="value === selectedOptionId">
+      <option disabled :selected="selectedId === null">{{ placeholder }}</option>
+      <option v-for="{ label, value } in options" :key="value" :value="value" :selected="value === selectedId">
         {{ label }}
       </option>
     </select>
