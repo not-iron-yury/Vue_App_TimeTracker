@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import BaseButton from '../components/BaseButton.vue';
 import BaseSelect from '../components/BaseSelect.vue';
-import { TIMERS_LIMIT } from './../constants';
+import { TIMERS_LIMIT, BUTTON_TYPE_DANGER } from './../constants';
 import { isTaskValid } from '../validators';
 
 const props = defineProps({
@@ -19,7 +19,7 @@ const selectedTimerId = ref(null);
 <template>
   <li class="flex flex-col gap-3 p-4">
     <div class="flex items-center gap-2">
-      <base-button>
+      <base-button :type="BUTTON_TYPE_DANGER">
         <font-awesome-icon :icon="['fas', 'trash-can']" />
       </base-button>
       <span class="truncate text-xl">{{ task }}</span>
