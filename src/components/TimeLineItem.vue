@@ -25,7 +25,7 @@ const selectedOptionId = ref(null);
 <template>
   <li :class="classListItem">
     <TimeLineHour :hour="timeLineData.hour" />
-    <base-select
+    <BaseSelect
       :options="taskListOption"
       :selectedId="selectedOptionId"
       placeholder="Отдых"

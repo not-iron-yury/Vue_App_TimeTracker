@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import LayoutHeader from './components/layout/Header.vue';
 import LayoutFooter from './components/layout/Footer.vue';
 import TimeLine from './pages/TimeLine.vue';
@@ -16,21 +16,26 @@ const newCurrentPage = newpage => {
   currentPage.value = newpage;
 };
 
-const tasks = ['Тренировка', 'Кодинг', 'Бытовуха', 'Кушац', 'Магазин'];
+const tasks = ref(['Тренировка', 'Кодинг', 'Бытовуха', 'Кушац', 'Магазин']);
 
-const taskListOption = createTaskListOption(tasks);
+const taskListOption = computed(() => createTaskListOption(tasks.value));
+
+function removeTaskOption(option) {
+  const index = tasks.value.indexOf(option);
+  tasks.value.splice(index, 1);
+}
 </script>
 
 <template>
-  <layout-header @change-current-page="newCurrentPage" />
+  <LayoutHeader @change-current-page="newCurrentPage" />
   <main class="flex flex-grow flex-col py-8">
     <div class="container px-4 mx-auto">
       <TimeLine v-show="currentPage === PAGE_TIMERS" :timeLines="timeLines" :taskListOption="taskListOption" />
-      <Tasks v-show="currentPage === PAGE_TASKS" :tasks="tasks" />
+      <Tasks v-show="currentPage === PAGE_TASKS" :tasks="tasks" @removeTask="removeTaskOption" />
       <Progress v-show="currentPage === PAGE_PROGRESS" />
     </div>
   </main>
-  <layout-footer @change-current-page="newCurrentPage" :current-page="currentPage" />
+  <LayoutFooter @changeCurrentPage="newCurrentPage" :currentPage="currentPage" />
 </template>
 
 <style></style>

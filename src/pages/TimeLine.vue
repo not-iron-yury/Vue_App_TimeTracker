@@ -20,7 +20,7 @@ const props = defineProps({
   <section>
     <h1 class="mb-10 text-xl font-semibold text-center text-blue-900">Таймеры</h1>
     <ul>
-      <time-line-item
+      <TimeLineItem
         v-for="timeLineData in timeLines"
         :key="timeLineData['hour']"
         :timeLineData="timeLineData"

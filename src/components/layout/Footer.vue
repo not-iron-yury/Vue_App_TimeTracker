@@ -25,21 +25,21 @@ const changeCurrentPage = newpage => {
     <div class="container px-4 mx-auto">
       <nav>
         <ul class="flex items-center justify-around flex-wrap gap-2">
-          <footer-link
+          <FooterLink
             label="Таймеры"
             :link="PAGE_TIMERS"
             icon="clock"
             :currentPage="currentPage"
             @new-page="changeCurrentPage"
           />
-          <footer-link
+          <FooterLink
             label="Задачи"
             :link="PAGE_TASKS"
             icon="list-check"
             :currentPage="currentPage"
             @new-page="changeCurrentPage"
           />
-          <footer-link
+          <FooterLink
             label="Прогресс"
             :link="PAGE_PROGRESS"
             icon="chart-line"

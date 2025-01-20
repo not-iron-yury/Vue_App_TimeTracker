@@ -14,18 +14,20 @@ const props = defineProps({
 });
 
 const selectedTimerId = ref(null);
+
+const emit = defineEmits(['remove']);
 </script>
 
 <template>
   <li class="flex flex-col gap-3 p-4">
     <div class="flex items-center gap-2">
-      <base-button :type="BUTTON_TYPE_DANGER">
+      <BaseButton :type="BUTTON_TYPE_DANGER" @click="emit('remove')">
         <font-awesome-icon :icon="['fas', 'trash-can']" />
-      </base-button>
+      </BaseButton>
       <span class="truncate text-xl">{{ task }}</span>
     </div>
     <div>
-      <base-select
+      <BaseSelect
         class="font-mono"
         :options="TIMERS_LIMIT"
         placeholder="hh:mm"

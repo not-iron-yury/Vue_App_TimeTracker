@@ -23,9 +23,9 @@ const emit = defineEmits(['select']);
 
 <template>
   <div class="flex gap-2">
-    <base-button @click="$emit('select', null)">
+    <BaseButton @click="$emit('select', null)">
       <font-awesome-icon :icon="['fas', 'xmark']" class="text-xl" />
-    </base-button>
+    </BaseButton>
     <select
       class="w-full truncate bg-blue-50 rounded-sm px-2 py-2 text-xl h-11"
       @change="emit('select', Number($event.target.value))"

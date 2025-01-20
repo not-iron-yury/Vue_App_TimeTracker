@@ -1,6 +1,6 @@
 <script setup>
 import TaskItem from '../components/TaskItem.vue';
-import { validateTasks } from './../validators';
+import { validateTasks, isTaskValid } from './../validators';
 
 const props = defineProps({
   tasks: {
@@ -9,13 +9,17 @@ const props = defineProps({
     validator: validateTasks,
   },
 });
+
+const emit = defineEmits({
+  removeTask: isTaskValid,
+});
 </script>
 
 <template>
   <section>
     <h1>Задачи</h1>
     <ul class="divide-y">
-      <task-item v-for="task in tasks" :key="task" :task="task" />
+      <TaskItem task-item v-for="task in tasks" :key="task" :task="task" @remove="emit('removeTask', task)" />
     </ul>
   </section>
 </template>
