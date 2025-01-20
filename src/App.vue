@@ -24,6 +24,10 @@ function removeTaskOption(option) {
   const index = tasks.value.indexOf(option);
   tasks.value.splice(index, 1);
 }
+
+function addTaskOption(option) {
+  tasks.value.push(option);
+}
 </script>
 
 <template>
@@ -31,7 +35,12 @@ function removeTaskOption(option) {
   <main class="flex flex-grow flex-col py-8">
     <div class="container px-4 mx-auto">
       <TimeLine v-show="currentPage === PAGE_TIMERS" :timeLines="timeLines" :taskListOption="taskListOption" />
-      <Tasks v-show="currentPage === PAGE_TASKS" :tasks="tasks" @removeTask="removeTaskOption" />
+      <Tasks
+        v-show="currentPage === PAGE_TASKS"
+        :tasks="tasks"
+        @removeTask="removeTaskOption"
+        @addTask="addTaskOption"
+      />
       <Progress v-show="currentPage === PAGE_PROGRESS" />
     </div>
   </main>

@@ -4,8 +4,8 @@ import { BUTTON_TYPE_BASIC, BUTTON_TYPE_DANGER } from './../constants';
 // const typeButton будет инициализированна только 1 раз
 // находясь в <script setup> инициализация будет выполнятся в каждой инициализации компонента BaseButton
 const typeButton = {
-  [BUTTON_TYPE_BASIC]: 'bg-blue-50 enabled:hover:bg-gray-500 enabled:hover:text-white',
-  [BUTTON_TYPE_DANGER]: 'bg-red-400 enabled:hover:bg-red-600 text-white',
+  [BUTTON_TYPE_BASIC]: 'bg-blue-50 enabled:hover:bg-gray-500 enabled:active:bg-gray-500 enabled:hover:text-white',
+  [BUTTON_TYPE_DANGER]: 'bg-red-300 enabled:hover:bg-red-600 enabled:active:bg-red-600 text-white',
 };
 </script>
 
