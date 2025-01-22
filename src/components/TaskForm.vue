@@ -1,10 +1,10 @@
 <script setup>
 import { nextTick } from 'vue';
 import BaseButton from '../components/BaseButton.vue';
-import { isTaskValid } from './../validators';
+import { isTaskNameValid } from './../validators';
 
 const emit = defineEmits({
-  newTask: isTaskValid,
+  newTask: isTaskNameValid,
 });
 
 function handlerInput(event) {

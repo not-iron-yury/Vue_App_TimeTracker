@@ -24,7 +24,7 @@ const props = defineProps({
   <button
     :class="[
       typeButton[type],
-      'max-w-11 w-full h-11 text-2xl rounded-sm disabled:cursor-not-allowed disabled:opacity-50',
+      'max-w-11 w-full h-11 pb-0.5 text-2xl rounded-sm disabled:cursor-not-allowed disabled:opacity-50',
     ]"
   >
     <slot></slot>

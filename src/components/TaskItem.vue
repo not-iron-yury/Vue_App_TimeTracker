@@ -3,13 +3,13 @@ import { ref } from 'vue';
 import BaseButton from '../components/BaseButton.vue';
 import BaseSelect from '../components/BaseSelect.vue';
 import { TIMERS_LIMIT, BUTTON_TYPE_DANGER } from './../constants';
-import { isTaskValid } from '../validators';
+import { isTaskNameValid } from '../validators';
 
 const props = defineProps({
   task: {
     type: String,
     required: true,
-    validator: isTaskValid,
+    validator: isTaskNameValid,
   },
 });
 
