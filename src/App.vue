@@ -26,7 +26,7 @@ function removeTaskOption(option) {
 }
 
 function addTaskOption(option) {
-  tasks.value.unshift(option);
+  tasks.value.push(option);
 }
 </script>
 

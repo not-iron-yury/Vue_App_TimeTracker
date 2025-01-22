@@ -22,7 +22,7 @@ function addNewTask(task) {
 </script>
 
 <template>
-  <section class="relative">
+  <section>
     <h1 class="mb-10 text-xl font-semibold text-center text-blue-900">Задачи</h1>
     <TaskForm @newTask="addNewTask" />
     <ul class="divide-y">
