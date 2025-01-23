@@ -22,7 +22,7 @@ export function isHourValid(hour) {
 
 // валидация конкретного элемента options (из списка опций для компонента BaseSelect)
 export function isOptionValid(options) {
-  return options.every(({ label, value }) => isTaskNameValid(label) && isString(value));
+  return options.every(({ label, value }) => isTaskNameValid(label) && (isString(value) || isNumber(value)));
 }
 
 // валидация массива тасков
@@ -49,6 +49,9 @@ function isString(value) {
   return typeof value === 'string';
 }
 
-function isObject(item) {
-  return typeof item === 'object';
+function isObject(value) {
+  return typeof value === 'object';
+}
+function isNull(value) {
+  return value === null;
 }

@@ -3,19 +3,24 @@ import { ref } from 'vue';
 import BaseButton from '../components/BaseButton.vue';
 import BaseSelect from '../components/BaseSelect.vue';
 import { TIMERS_LIMIT, BUTTON_TYPE_DANGER } from './../constants';
-import { isTaskNameValid } from '../validators';
 
 const props = defineProps({
   task: {
-    type: String,
+    type: Object,
     required: true,
-    validator: isTaskNameValid,
+    //validator: isTaskNameValid,
   },
 });
 
-const selectedTimerId = ref(null);
-
 const emit = defineEmits(['remove']);
+
+const selectedTimeValue = ref(null);
+
+function setTaskTimeValue(value, task) {
+  task.secondsToComplete = value;
+
+  selectedTimeValue.value = null === value ? value : Number(value);
+}
 </script>
 
 <template>
@@ -24,15 +29,15 @@ const emit = defineEmits(['remove']);
       <BaseButton :type="BUTTON_TYPE_DANGER" @click="emit('remove')">
         <font-awesome-icon :icon="['fas', 'trash-can']" />
       </BaseButton>
-      <span class="truncate text-xl">{{ task }}</span>
+      <span class="truncate text-xl">{{ task.name }}</span>
     </div>
     <div>
       <BaseSelect
         class="font-mono"
         :options="TIMERS_LIMIT"
         placeholder="hh:mm"
-        :selectedId="selectedTimerId"
-        @select="selectedTimerId = $event"
+        :selected="selectedTimeValue"
+        @select="setTaskTimeValue($event, task)"
       />
     </div>
   </li>

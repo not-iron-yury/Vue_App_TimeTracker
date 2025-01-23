@@ -13,7 +13,6 @@ const props = defineProps({
   taskListOption: {
     type: Array,
     required: true,
-    //validator: isOptionValid  // данная валидация уже выполняется в родительском компоненте TimeLine
   },
 });
 
@@ -27,7 +26,7 @@ const selectedOptionId = ref(null);
     <TimeLineHour :hour="timeLineData.hour" />
     <BaseSelect
       :options="taskListOption"
-      :selectedId="selectedOptionId"
+      :selected="selectedOptionId"
       placeholder="Отдых"
       @select="selectedOptionId = $event"
     />

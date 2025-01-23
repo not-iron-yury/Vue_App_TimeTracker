@@ -26,7 +26,7 @@ function addNewTask(task) {
     <h1 class="mb-10 text-xl font-semibold text-center text-blue-900">Задачи</h1>
     <TaskForm @newTask="addNewTask" />
     <ul v-if="tasks.length > 0" class="divide-y">
-      <TaskItem v-for="task in tasks" :key="task.id" :task="task.name" @remove="emit('removeTask', task)" />
+      <TaskItem v-for="task in tasks" :key="task.id" :task="task" @remove="emit('removeTask', task)" />
     </ul>
     <div v-else class="flex items-center justify-center py-[12vh]">
       <p class="text-blue-500 text-2xl">Нет задач</p>
